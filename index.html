@@ -5,79 +5,69 @@
     <title>등교길 프로그램</title><!-- 페이지의 이름을 알려주는 title 태그 -->
   </head>
 
-  <body><!-- 본문을 감싸는 태그 -->
+  <body>
+      <!-- 본문을 감싸는 태그 -->
 
-    <h1><a onclick = sessionStorage.clear(); href="index.html">등교길 프로그램</a></h1>   <!-- 세션스토리지를 비우고, 하이퍼링크로 이동(처음부터 다시시작) -->
+      <h1><a onclick=sessionStorage.clear(); href="index.html">등교길 프로그램</a></h1>   <!-- 세션스토리지를 비우고, 하이퍼링크로 이동(처음부터 다시시작) -->
 
-    <h2><a href="김정환.html">김정환</a></h2>
-    <h2><a href="조정규.html">조정규</a></h2>
+      <h2><a href="test.html">test</a></h2>
+      <h2><a href="김정환.html">김정환</a></h2>
+      <h2><a href="조정규.html">조정규</a></h2>
 
-  <!-- 세션스토리지 예시
-  품목명 : <input id="item" type="text" size="10">
-  개수 : <input id="count" type="text" size="10">
-  <button id="save" onclick="store()">저장</button>
-  <button id="retrieve" onclick="retrieve()">검색</button>
-  -->
+      <!-- 세션스토리지 예시
+    품목명 : <input id="item" type="text" size="10">
+    개수 : <input id="count" type="text" size="10">
+    <button id="save" onclick="store()">저장</button>
+    <button id="retrieve" onclick="retrieve()">검색</button>
+    -->
 
-  <button type="button" onclick=store("김정환")>김정환</button>
-  <button type="button" onclick=store("조정규")>조정규</button>
-    
-    <!-- 지도를 표시할 div 입니다 -->
-<div id="map" style="width:100%;height:350px;"></div>
-  
-
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8e81ae4f1450edf1f89b66036a4c5bd2"></script>
-  <script>
-    var arr = []
-
-    var item = document.getElementById("item");
-    var count = document.getElementById("count");
-
-    function store(input, transportation) {
-      if (!window.sessionStorage) {
-        alert("세션 스토리지를 지원하지 않습니다.");
-        return;
-      }
-      arr.push(input);
-      arr.push(transportation);
-      //arr.push("출발지점");
-      sessionStorage.setItem("key", JSON.stringify(arr));
-
-      //다음 페이지로 넘겨주는 코드
-      location.href = input + ".html";
-    }
-
-    function retrieve() {
-        if (!window.sessionStorage) {
-          alert("세션 스토리지를 지원하지 않습니다.");
-          return;
-        }
-      var val = sessionStorage.getItem("key");
-      if(val == null)
-        alert(item.value + "는 저장되지 않았습니다.");
-      else{
-        var arr = JSON.parse(val);//
-        console.log(arr) // [1,2,3,4,5]
-      }
-    }
+      <button type="button" onclick=store("김정환")>김정환</button>
+      <button type="button" onclick=store("조정규")>조정규</button>
 
 
-    //참고할만한 페이지
-    //https://amajoy.tistory.com/entry/localStorage-%EB%B0%B0%EC%97%B4%ED%98%95%EC%8B%9D-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0
-    //https://gent.tistory.com/294
-    
-    <!-- 자바스크립트 코드 -->
-    
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+      <!-- 자바스크립트 코드 -->
+      <script>
+          var arr = []
 
-// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-var map = new kakao.maps.Map(mapContainer, mapOption); 
-    
-  </script>
-    
+          var item = document.getElementById("item");
+          var count = document.getElementById("count");
+
+          function store(input, transportation) {
+              if (!window.sessionStorage) {
+                  alert("세션 스토리지를 지원하지 않습니다.");
+                  return;
+              }
+              arr.push(input);
+              arr.push(transportation);
+              //arr.push("출발지점");
+              sessionStorage.setItem("key", JSON.stringify(arr));
+
+              //다음 페이지로 넘겨주는 코드
+              location.href = input + ".html";
+          }
+
+          function retrieve() {
+              if (!window.sessionStorage) {
+                  alert("세션 스토리지를 지원하지 않습니다.");
+                  return;
+              }
+              var val = sessionStorage.getItem("key");
+              if (val == null)
+                  alert(item.value + "는 저장되지 않았습니다.");
+              else {
+                  var arr = JSON.parse(val);//
+                  console.log(arr) // [1,2,3,4,5]
+              }
+          }
+
+
+          //참고할만한 페이지
+          //https://amajoy.tistory.com/entry/localStorage-%EB%B0%B0%EC%97%B4%ED%98%95%EC%8B%9D-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0
+          //https://gent.tistory.com/294
+
+
+          //자바스크립트 키 : 8e81ae4f1450edf1f89b66036a4c5bd2
+
+      </script>
   </body>
 </html>
