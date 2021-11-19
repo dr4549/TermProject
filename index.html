@@ -21,9 +21,13 @@
 
   <button type="button" onclick=store("김정환")>김정환</button>
   <button type="button" onclick=store("조정규")>조정규</button>
+    
+    <!-- 지도를 표시할 div 입니다 -->
+<div id="map" style="width:100%;height:350px;"></div>
   
 
   <!-- 자바스크립트 코드 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8e81ae4f1450edf1f89b66036a4c5bd2"></script>
   <script>
     var arr = []
 
@@ -62,7 +66,18 @@
     //참고할만한 페이지
     //https://amajoy.tistory.com/entry/localStorage-%EB%B0%B0%EC%97%B4%ED%98%95%EC%8B%9D-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0
     //https://gent.tistory.com/294
+    
+    
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
 
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+    
   </script>
+    
   </body>
 </html>
