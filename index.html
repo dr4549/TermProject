@@ -21,10 +21,6 @@
 
   <button type="button" onclick=store("김정환")>김정환</button>
   <button type="button" onclick=store("조정규")>조정규</button>
-
-  품목명 : <input id="item" type="text" size="10">
-  개수 : <input id="count" type="text" size="10">
-  <button id="retrieve" onclick="retrieve()">검색</button>
   
 
   <!-- 자바스크립트 코드 -->
@@ -40,8 +36,8 @@
         return;
       }
       arr.push(input);
-      //arr.push(transportation);
-      arr.push("출발지점");
+      arr.push(transportation);
+      //arr.push("출발지점");
       sessionStorage.setItem("key", JSON.stringify(arr));
 
       //다음 페이지로 넘겨주는 코드
