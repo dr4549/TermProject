@@ -71,7 +71,6 @@
 				position: new kakao.maps.LatLng(좌표[i][0], 좌표[i][1]), // 마커의 좌표
 				map: map // 마커를 표시할 지도 객체
 			});
-
 			// 커스텀 오버레이를 생성하고 지도에 표시한다
 		//	var customOverlay = new kakao.maps.CustomOverlay({
 		//		map: map,
@@ -80,13 +79,11 @@
 		//		xAnchor: 0.5, // 컨텐츠의 x 위치
 		//		yAnchor: 0 // 컨텐츠의 y 위치
 		//	});
-
 			// 마커 위에 표시할 인포윈도우를 생성한다
 			var infowindow = new kakao.maps.InfoWindow({
 				//content : '<div style="padding:5px;">' + 좌표[i][2] +'</div>' // 인포윈도우에 표시할 내용
 				content : '<span class="info-title">' + 좌표[i][2] +'</span>'
 			});
-
 			// 인포윈도우를 지도에 표시한다
 			infowindow.open(map, marker);
 		}
